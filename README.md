@@ -12,8 +12,8 @@ WARNING: Different types of AutoScaling-Policy may conflict with each other.
 ## Usage
 
 ```hcl
-module "AS_Polisys" {
-  source = "AS_policys/"
+module "AS_Polisy" {
+  source = "github.com/lean-delivery/tf-module-aws-scaling-policy/"
   autoscaling_group_name = "my_autoscaling_group"
 
   SimpleAlarmScaling_policys = [
