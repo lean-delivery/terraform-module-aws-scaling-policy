@@ -1,6 +1,6 @@
 resource "aws_autoscaling_policy" "SimpleScaling_ASG_policy" {
   count                  = "${length(var.SimpleScaling_policys)}"
-  name                   = "SimpleScaling-policy for ${var.policy_name}-autoscaling_group-${count.index}"
+  name                   = "SimpleScaling-policy_for_${var.policy_name}-autoscaling_group-${count.index}"
   autoscaling_group_name = "${var.autoscaling_group_name}"
   adjustment_type        = "${lookup(var.SimpleScaling_policys[count.index], "adjustment_type")}"
   policy_type            = "${lookup(var.SimpleScaling_policys[count.index], "policy_type")}"
@@ -10,7 +10,7 @@ resource "aws_autoscaling_policy" "SimpleScaling_ASG_policy" {
 
 resource "aws_autoscaling_policy" "SimpleAlarmScaling_ASG_policy" {
   count                  = "${length(var.SimpleAlarmScaling_policys)}"
-  name                   = "SimpleAlarmScaling-policy for ${var.policy_name}-autoscaling_group-${count.index}"
+  name                   = "SimpleAlarmScaling-policy_for_${var.policy_name}-autoscaling_group-${count.index}"
   autoscaling_group_name = "${var.autoscaling_group_name}"
   adjustment_type        = "${lookup(var.SimpleAlarmScaling_policys[count.index], "adjustment_type")}"
   policy_type            = "${lookup(var.SimpleAlarmScaling_policys[count.index], "policy_type")}"
@@ -20,7 +20,7 @@ resource "aws_autoscaling_policy" "SimpleAlarmScaling_ASG_policy" {
 
 resource "aws_autoscaling_policy" "StepScaling_ASG_policy" {
   count                  = "${length(var.StepScaling_policys)}"
-  name                   = "StepScaling-policy for ${var.policy_name}-autoscaling_group-${count.index}"
+  name                   = "StepScaling-policy_for_${var.policy_name}-autoscaling_group-${count.index}"
   autoscaling_group_name = "${var.autoscaling_group_name}"
   adjustment_type        = "${lookup(var.StepScaling_policys[count.index], "adjustment_type")}"
   policy_type            = "${lookup(var.StepScaling_policys[count.index], "policy_type")}"
@@ -34,7 +34,7 @@ resource "aws_autoscaling_policy" "StepScaling_ASG_policy" {
 
 resource "aws_autoscaling_policy" "TargetTracking_ASG_policy" {
   count                  = "${length(var.TargetTracking_policys)}"
-  name                   = "TargetTracking-policy for ${var.policy_name}-autoscaling_group-${count.index}"
+  name                   = "TargetTracking-policy_for_${var.policy_name}-autoscaling_group-${count.index}"
   autoscaling_group_name = "${var.autoscaling_group_name}"
   adjustment_type        = "${lookup(var.TargetTracking_policys[count.index], "adjustment_type")}"
   policy_type            = "${lookup(var.TargetTracking_policys[count.index], "policy_type")}"

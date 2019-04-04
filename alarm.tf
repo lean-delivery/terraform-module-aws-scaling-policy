@@ -9,7 +9,7 @@ resource "aws_cloudwatch_metric_alarm" "simpleAlarm_policy_alarm" {
   alarm_description   = "${lookup( var.SimpleAlarmScaling_policys[count.index], "alarm_description"        )}"
   namespace           = "AWS/EC2"
   statistic           = "Average"
-  alarm_actions       = ["${element(aws_autoscaling_policy.SimpleScaling_ASG_policy.*.arn, count.index)}"]
+  alarm_actions       = ["${element(aws_autoscaling_policy.SimpleAlarmScaling_ASG_policy.*.arn, count.index)}"]
 
   dimensions = {
     AutoScalingGroupName = "${var.autoscaling_group_name}"
