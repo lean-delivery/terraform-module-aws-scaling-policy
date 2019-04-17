@@ -1,4 +1,4 @@
-# AS_policys
+# Terraform module aws scaling policy
 
 ## Description
 
