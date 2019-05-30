@@ -1,5 +1,3 @@
-
-
 resource "aws_autoscaling_policy" "SimpleScaling_ASG_policy" {
   count                  = "${length(var.SimpleScaling_policys)}"
   name                   = "SimpleScaling-policy_for_${var.policy_name}-autoscaling_group-${count.index}"
