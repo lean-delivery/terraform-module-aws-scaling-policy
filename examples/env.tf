@@ -1,5 +1,5 @@
 resource "random_string" "postfix" {
-  length = 16
+  length  = 16
   special = true
 }
 
