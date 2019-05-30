@@ -1,15 +1,11 @@
-variable "region" {
+variable "aws_region" {
   default = "us-east-1"
 }
 
 variable "policy_name" {
   type        = "string"
   description = "name for policy for autoscaling group"
-}
-
-variable "autoscaling_group_name" {
-  type        = "string"
-  description = "autoscaling group name"
+  default     = "example"
 }
 
 variable "SimpleScaling_policys" {

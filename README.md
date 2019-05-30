@@ -62,7 +62,7 @@ module "AS_Polisy" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | autoscaling_group_name | AutoScaling-Group for which autoscaling_policy will be created | string | n/a | yes |
-| policy_name | name for policy for autoscaling group | string | - | Yes
+| policy_name | name for policy for autoscaling group | string | "example" | no |
 | SimpleScaling_policys | List of policys with type "SimpleScaling" without alarms | list | [] | no |
 | SimpleAlarmScaling_policys| List of policys with type "SimpleScaling" with alarms | list | [] | no |
 | StepScaling_policys | List of policys with type "StepScaling" (only with alarms) | list | [] | no |
@@ -97,7 +97,7 @@ module "AS_Polisy" {
 
 ## Terraform versions
 
-Terraform version 0.11.11 or newer is required for this module to work.
+Terraform v0.12.0
 
 ## Contributing
 

@@ -9,11 +9,9 @@ import (
 	// "github.com/stretchr/testify/assert"
 )
 
-var terraformDirectory     = "../examples"
-var region                 = "us-east-1"
-var account                = ""
-var policy_name            = "TEST_autoscaling_policy"
-var autoscaling_group_name = "testgroup"
+var terraformDirectory = "../examples"
+var account            = ""
+var policy_name        = "TEST_autoscaling_policy"
 
 func randSeq(n int) string {
 	letters := []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -21,7 +19,7 @@ func randSeq(n int) string {
     for i := range b {
         b[i] = letters[rand.Intn(len(letters))]
     }
-    return string(b)
+    return "_" + string(b) + "_"
 }
 
 func Test_SetUp(t *testing.T) {
@@ -30,9 +28,7 @@ func Test_SetUp(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		TerraformDir: terraformDirectory,
 		Vars: map[string]interface{}{
-			"aws_region": region,
 			"policy_name": policy_name + randSeq(10),
-			"autoscaling_group_name": autoscaling_group_name,
 		},
 	}
 	defer terraform.Destroy(t, terraformOptions)
@@ -81,9 +77,7 @@ func Test_SimpleAlarmScaling_policy(t *testing.T) {
 		TerraformDir: terraformDirectory,
 
 		Vars: map[string]interface{}{
-			"aws_region": region,
 			"policy_name": policy_name + randSeq(10),
-			"autoscaling_group_name": autoscaling_group_name,
 			"SimpleAlarmScaling_policys": Policys,
 		},
 	}
@@ -112,9 +106,7 @@ func Test_SimpleScaling_policy(t *testing.T) {
 		TerraformDir: terraformDirectory,
 
 		Vars: map[string]interface{}{
-			"aws_region": region,
 			"policy_name": policy_name + randSeq(10),
-			"autoscaling_group_name": autoscaling_group_name,
 			"SimpleScaling_policys": Policys,
 		},
 	}

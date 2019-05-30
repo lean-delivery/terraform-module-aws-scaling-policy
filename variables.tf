@@ -1,6 +1,7 @@
 variable "policy_name" {
   type        = "string"
   description = "name for policy for autoscaling group"
+  default     = "example"
 }
 
 variable "autoscaling_group_name" {
